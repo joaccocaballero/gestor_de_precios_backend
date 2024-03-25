@@ -9,7 +9,7 @@ const express = require('express')
     a un perfil de Rol Alumno.
 */
 
-const verifyStudent = async (req, res, next) => {
+const verifyUser = async (req, res, next) => {
     const token = req.header('Authorization');
     const users = db.Users
     try {
@@ -33,5 +33,5 @@ const verifyStudent = async (req, res, next) => {
 }
 
 module.exports = {
-    verifyStudent
+    verifyUser
 }

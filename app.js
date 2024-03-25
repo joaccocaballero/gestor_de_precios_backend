@@ -8,6 +8,7 @@ const { getOriginURL } = require('./config/serverConfig'); // Importar la config
 const app = express();
 const productsRouter = require('./router/products');
 const authRouter = require('./router/auth');
+const {verifyUser} = require('./middlewares/verifyUser');
 
 // // Configuración de CORS con la URL de origen dinámica
 let originURL = getOriginURL();

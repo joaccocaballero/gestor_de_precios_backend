@@ -29,6 +29,7 @@ const COOKIE_OPTIONS = getCookieOptions()
 
 async function authenticateUser(req, res) { 
     try {
+        console.log('llegue a auth user')
         const user = await UsersService.getUserByUsername(req.body.username)
         if (user){
             const validPassword = await bcrypt.compare(req.body.password, user.password)
