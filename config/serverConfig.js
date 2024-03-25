@@ -3,7 +3,7 @@ require('dotenv').config();
 function getOriginURL() {
     switch (process.env.NODE_ENV) {
         case 'production':
-            return 'http://localhost:3000';
+            return 'https://www.provisioncarla.net';
         case 'development':
             return 'http://localhost:3000';
         default:
