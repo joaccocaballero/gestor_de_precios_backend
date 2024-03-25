@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
-// const cookieParser = require('cookie-parser');
 const { getOriginURL } = require('./config/serverConfig'); // Importar la configuración de URL de origen
 
 const app = express();

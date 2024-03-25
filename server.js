@@ -7,16 +7,17 @@ const app = require('./app'); // Asegúrate de exportar tu aplicación Express d
 const hostname = '0.0.0.0';
 const port = process.env.PORT || 8080;
 
-// const httpsOptions = {
-//     cert: fs.readFileSync('./ssl/backend_pcomasistencias_com.crt'),
-//     ca: fs.readFileSync('./ssl/backend_pcomasistencias_com.ca-bundle'),
-//     key: fs.readFileSync('./ssl/private.key')
-// };
+const httpsOptions = {
+    cert: fs.readFileSync('./ssl/backend_pcomasistencias_com.crt'),
+    ca: fs.readFileSync('./ssl/backend_pcomasistencias_com.ca-bundle'),
+    key: fs.readFileSync('./ssl/private.key')
+};
 
 const server = process.env.NODE_ENV === 'production'
     ? https.createServer(httpsOptions, app)
     : app; // En desarrollo, utiliza HTTP
 
 server.listen(port, hostname, () => {
+    console.log('Current Environment: ', process.env.NODE_ENV);
     console.log(`Services running at ${process.env.NODE_ENV === 'production' ? 'https' : 'http'}://${hostname}:${port}/`);
 });
