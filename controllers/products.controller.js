@@ -41,6 +41,13 @@ async function updateProductByDatabaseId(req, res) {
     try {
         const id = req.query.productId;
         const product = req.body;
+        product.name = product.name.toUpperCase();
+        if(product.barcode === ''){
+            product.barcode = null;
+        }
+        else if (product.costPrice === ''){
+            product.costPrice = null;
+        }
         const updatedProduct = await productsServiceInstance.updateProduct(id, product);
         res.status(200).json(updatedProduct);
     } catch (error) {
@@ -52,6 +59,12 @@ async function addNewProduct(req, res){
     try {
         const product = req.body;
         product.name = product.name.toUpperCase();
+        if(product.barcode === ''){
+            product.barcode = null;
+        }
+        else if (product.costPrice === ''){
+            product.costPrice = null;
+        }
         const newProduct = await productsServiceInstance.createProduct(product.name,product.barcode,product.costPrice,product.publicPrice)
         res.status(200).json(newProduct);
     } catch (error) {

@@ -18,12 +18,12 @@ module.exports = {
         allowNull: true
       },
       costPrice: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.NUMERIC,
         field: 'cost_price',
-        allowNull: false
+        allowNull: true
       },
       publicPrice: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.NUMERIC,
         field: 'public_price',
         allowNull: false
       },

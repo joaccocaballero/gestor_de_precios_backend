@@ -23,12 +23,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
     costPrice: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.NUMERIC,
       field: 'cost_price',
-      allowNull: false
+      allowNull: true
     },
     publicPrice: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.NUMERIC,
       field: 'public_price',
       allowNull: false,
     },
