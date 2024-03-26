@@ -59,9 +59,20 @@ async function addNewProduct(req, res){
     }
 }
 
+async function deleteProductByDatabaseId(req, res) {
+    try {
+        const id = req.query.productId;
+        const deletedProduct = await productsServiceInstance.deleteProduct(id);
+        res.status(200).json(deletedProduct);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
 module.exports = {
     getProductInfo,
     getProductInfoByDatabaseId,
     updateProductByDatabaseId,
-    addNewProduct
+    addNewProduct,
+    deleteProductByDatabaseId
 }
