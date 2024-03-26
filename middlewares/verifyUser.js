@@ -1,7 +1,6 @@
 require('dotenv').config()
 const jwt = require('jsonwebtoken')
 const db = require('../models/index');
-const express = require('express')
 
 /*
     Middleware:

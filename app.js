@@ -20,7 +20,7 @@ app.use(cors({
 
 app.use(cookieParser());
 app.use(express.json());
-app.use('/products', productsRouter);
+app.use('/products',verifyUser,productsRouter);
 app.use('/auth', authRouter)
 
 // Ruta de comprobación de salud
